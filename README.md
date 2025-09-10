@@ -37,7 +37,7 @@ async function nombre_funcion() {
 
 Posicionamos _async_ antes de definir la función, y _await_ antes de la promesa por la que vamos a esperar.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 No podemos usar la palabra clave _await_ sin antes haber precisado _async_.
 {% endhint %}
 
