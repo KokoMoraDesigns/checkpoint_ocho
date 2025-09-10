@@ -12,12 +12,12 @@ A menudo, cuando estamos desarrollando una tarea, en algún momento debemos <mar
 
 &#x20;       **\***
 
-* [ ] crear un archivo 'variables' con la gama de colores
-* [ ] implementar las fuentes en el archivo 'index'
+* [ ] crear un archivo 'variables.scss' con la gama de colores
+* [ ] implementar las fuentes en el archivo 'index.html'
 * [ ] diseñar la estructura con flexbox, grid, u otras opciones
 * [ ] etc.
 
-Pero, antes del primer paso, hay una pausa: la espera para que nuestro cliente nos diga, por ejemplo, 'quiero transmitir calma y confiabilidad'. En esta pausa (en el boceto anterior, la hemos señalado con un asterisco) entran en juego la función _<mark style="background-color:yellow;">async</mark>_ y la palabra clave _<mark style="background-color:purple;">await.</mark> <mark style="background-color:yellow;">Async</mark>_ significa 'te estoy avisando de que la siguiente función es asincrónica', y su presencia permite que _await_ pueda entrar en acción. _<mark style="background-color:purple;">Await</mark>_ significa 'voy a pausar un momento el flujo de esta función para poder realizar una tarea en segundo plano'; comúnmente, esa tarea suele ser esperar, por ejemplo, la respuesta de una API, y, cuando la respuesta llega, entonces la pausa termina y se puede ejecutar el resto de la función.
+Pero, antes del primer paso, hay una pausa: la espera para que nuestro cliente nos diga, por ejemplo, 'quiero transmitir calma y fiabilidad'. En esta pausa (en el boceto la hemos señalado con un asterisco) entran en juego la función _<mark style="background-color:yellow;">async</mark>_ y la palabra clave _<mark style="background-color:purple;">await.</mark> <mark style="background-color:yellow;">Async</mark>_ significa 'te estoy avisando de que la siguiente función es asincrónica', y su presencia permite que _await_ pueda entrar en acción. _<mark style="background-color:purple;">Await</mark>_ significa 'voy a pausar un momento el flujo de esta función para poder realizar una tarea en segundo plano'; comúnmente, esa tarea suele ser esperar, por ejemplo, la respuesta de una API, y, cuando la respuesta llega, entonces la pausa termina y se puede ejecutar el resto de la función.
 
 <details>
 
@@ -38,14 +38,51 @@ async function nombre_funcion() {
 Posicionamos _async_ antes de definir la función, y _await_ antes de la promesa por la que vamos a esperar.
 
 {% hint style="info" %}
-No podemos usar la palabra clave await sin haber Al llamar a la función, también debemos poner _await_ justo antes de la llamada.
+No podemos usar la palabra clave _await_ sin antes haber precisado _async_.
 {% endhint %}
 
 </details>
 
-Ahora, vamos a codificar nuestro ejemplo anterior:
+Ahora, vamos a volver al tema que tratábamos al principio, pero, esta vez, con un ejemplo codificable. La 'tarea principal' en este caso será la de recoger los datos de los perfiles de usuario en una librería; para ello, primero vamos a simular la llamada a la API, dándole una demora de 4 segundos, y, tras la respuesta de esta llamada, necesitaremos que nos muestre la información que ha recogido.
+
+```
+function recogerPerfiles() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('Esta sería toda la información que la API nos devuelva.');
+        }, 4000);
+    });
+}
 
 
 
-Cuando usamos funciones asincrónicas, estamos posibilitando el hecho de que se desarrollen tareas en segundo plano sin parar el flujo de trabajo de la aplicación.
+async function mostrarPerfiles() {
+    console.log('Estoy buscando toda la información que tengo almacenada sobre los perfiles, un momento, por favor.');
+    const perfiles = await recogerPerfiles();
+    console.log(`Aquí están los perfiles que te interesan: ${perfiles}`);
+}
+
+```
+
+Es decir, si llamamos a la función asíncrona _mostrarPerfiles_, esta ejecutaría la primera orden, devolviéndonos:
+
+```
+mostrarPerfiles();
+
+"Estoy buscando toda la información que tengo almacenada sobre los perfiles, un momento, por favor."
+```
+
+Después, entraría en juego la palabra clave _await_, con lo que,  hasta que la función _recogerPerfiles_ no hubiese terminado su cometido (que en este caso tendría una demora fija de 4 segundos), _mostrarPerfiles_ no seguiría ejecutando el código restante.
+
+```
+mostrarPerfiles();
+
+Resultado:
+
+"Estoy buscando toda la información que tengo almacenada sobre los perfiles, un momento, por favor."
+
+Y 4 segundos después:
+
+"Aquí están los perfiles que te interesan: Esta sería toda la información que la API nos devuelva."
+```
 
