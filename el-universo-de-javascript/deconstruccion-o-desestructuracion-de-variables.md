@@ -146,5 +146,58 @@ Resultado:
 "su nombre es Imala, de 60 años, con origen en San Sebastián"
 ```
 
+
+
+**También podemos** asignarle valores por defecto:
+
+```
+let usuarios = [
+
+  { nombre: "Maite", suscrita: true },
+  { nombre: "Amatxito" },
+  
+];
+
+
+for (let { nombre, suscrita = true } of usuarios) {
+
+    console.log(`¿${nombre} está suscrita? ${suscrita}`);
+}
+
+
+
+Resultado:
+
+"¿Maite está suscrita? true"
+"¿Amatxito está suscrita? true" --> si no especificamos lo contrario al definir este usuario, el valor por defecto será true.
+```
+
+
+
+**También podemos** realizar deconstrucciones anidadas:
+
+```
+let persona = {
+  nombre: 'Maite',
+  pasiones: {
+    literatura: 'terror',
+    musica: 'r&b'
+  }
+},
+
+let {
+  nombre,
+  pasiones: {literatura, musica}
+} = persona;
+
+
+console.log(`a 
+
+console.log(nombre);        // "Laura"
+console.log(titulo);        // "Desarrolladora"
+console.log(departamento);  // "IT"
+
+```
+
 </details>
 
