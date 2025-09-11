@@ -177,26 +177,24 @@ Resultado:
 **También podemos** realizar deconstrucciones anidadas:
 
 ```
-let persona = {
+const persona = {
   nombre: 'Maite',
   pasiones: {
     literatura: 'terror',
     musica: 'r&b'
   }
-},
+};
 
-let {
-  nombre,
-  pasiones: {literatura, musica}
-} = persona;
+const { nombre, pasiones: {literatura, musica} } = persona;
 
 
-console.log(`a 
+console.log(`A ${nombre} le apasionan: la literatura de ${literatura} y la música ${musica}`);
 
-console.log(nombre);        // "Laura"
-console.log(titulo);        // "Desarrolladora"
-console.log(departamento);  // "IT"
 
+
+Resultado:
+
+"A Maite le apasionan: la literatura de terror y la música r&b"
 ```
 
 </details>
