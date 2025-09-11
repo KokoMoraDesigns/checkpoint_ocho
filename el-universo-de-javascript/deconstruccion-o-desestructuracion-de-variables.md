@@ -14,11 +14,11 @@ Pues bien, ahora el pastel es una colección de datos formada por un conjunto de
 Además de facilitar un código más manejable, la desestructuración de variables también está ligada a las buenas prácticas en programación, puesto que proporciona un código más legible y fácil de mantener, así como menos reiterativo.
 {% endhint %}
 
-Veamos como funciona la deconstrucción de variables en diferentes elementos.
+Veamos como funciona la deconstrucción de variables en <mark style="background-color:purple;">diferentes elementos</mark>.
 
 <details>
 
-<summary>arrays</summary>
+<summary>Arrays</summary>
 
 ```
 let alimentacion = ['pancake y zumo de pomelo', 'huevos rotos y yogur', 'pimientos con hamburguesa de atún y helado'];
@@ -64,11 +64,39 @@ console.log(desayuno); --> resultado: "pancake y zumo de pomelo"
 console.log(cena); --> resultado: "pimientos con hamburguesa de atún y helado"
 ```
 
+
+
+**También podemos** intercambiar las variables:
+
+```
+const clima_hoy = ['nuboso', 'lluvia', 'sol'];
+
+console.log(clima_hoy); --> resultado --> ["nuboso","lluvia","sol"]
+
+
+[clima_hoy[2], clima_hoy[1]] = [clima_hoy[1], clima_hoy[2]];
+
+console.log(clima_hoy);  --> resultado --> ["nuboso","sol","lluvia"]
+```
+
+
+
+**También podemos** asignar varios elementos a una sola variable:
+
+```
+let alimentacion = ['pancake y zumo de pomelo', 'huevos rotos y yogur', 'pimientos con hamburguesa de atún y helado'];
+
+let [desayuno, ...cena] = alimentacion
+
+console.log(desayuno); --> resultado --> "pancake y zumo de pomelo"
+console.log(cena); --> resultado --> ["huevos rotos y yogur","pimientos con hamburguesa de atún y helado"]
+```
+
 </details>
 
 <details>
 
-<summary>objetos</summary>
+<summary>Objeto clave-valor</summary>
 
 ```
 let usuario = {nombre: "Maite", edad: 28, ciudad: "La Habana"};
@@ -199,3 +227,48 @@ Resultado:
 
 </details>
 
+<details>
+
+<summary>Funciones</summary>
+
+Cómo accederíamos a los valores <mark style="background-color:$primary;">sin deconstruirla</mark>:
+
+```
+function buenosDias (saludo) {
+
+    const nombre = saludo.nombre;
+    const mensaje = saludo.mensaje;
+    
+console.log(`Buenos días ${nombre}, ${mensaje}.`);
+
+}
+
+buenosDias({ nombre: 'Amatxito', mensaje: 'te quiero'});
+
+
+
+Resultado:
+"Buenos días Amatxito, te quiero."
+```
+
+Cómo accedemos a los valores <mark style="background-color:yellow;">después de deconstruirla:</mark>
+
+```
+
+function buenosDias ( {nombre, mensaje} ) {
+
+    console.log(`Buenos días ${nombre}, ${mensaje}.`);
+}
+
+
+const amatxito = { nombre: 'Amatxito', mensaje: 'te quiero'};
+
+buenosDias(amatxito);
+
+
+Resultado:
+
+"Buenos días Amatxito, te quiero."
+```
+
+</details>
