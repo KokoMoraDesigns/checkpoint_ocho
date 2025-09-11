@@ -140,6 +140,8 @@ Resultado:
 
 
 
+
+
 **También podemos** alterar el nombre de las variables:
 
 ```
@@ -275,6 +277,68 @@ buenosDias(amatxito);
 Resultado:
 
 "Buenos días Amatxito, te quiero."
+```
+
+</details>
+
+Un elemento muy útil y necesario según el propósito que tengamos al deconstruir una variable (que, de hecho, ya hemos utilizado, cuando analizamos cómo asignar varios elementos a una sola variable),  es <mark style="background-color:blue;">el operador de extensión,</mark> cuya utilidad consiste, como ya hemos visto, en reunir varios elementos donde 'debería' haber uno solo, en otras palabras: mover varios elementos con un solo gesto.
+
+Pongamos, por ejemplo, que en la variable anterior sobre la alimentación que vamos a llevar diariamente, decidimos añadir, por cada día de la semana, una bebida diferente. Lo haríamos de la siguiente manera:
+
+```
+let alimentacion = ['pancake y zumo de pomelo', 'huevos rotos y yogur', 'pimientos con hamburguesa de atún y helado'];
+
+let alimentacion_lunes = [...alimentacion, horchata];
+
+console.log(alimentacion_lunes); --> resultado --> ["pancake y zumo de pomelo","huevos rotos y yogur","pimientos con hamburguesa de atún y helado","horchata"]
+```
+
+Otras utilidades que le podemos dar son:
+
+<details>
+
+<summary>copiar una variable</summary>
+
+```
+let variable_original = ['contenido', 'y más contenido'];
+let copia_variable = [...variable_original];
+
+console.log(copia_variable); --> resultado --> ["contenido","y más contenido"]
+```
+
+Y también con objetos de clave-valor:
+
+```
+var persona_uno = { nombre: "Koko", edad: 28 };
+
+console.log(persona_uno); --> resultado --> 
+{
+  "nombre": "Koko",
+  "edad": 28
+}
+
+
+var persona_uno = {...persona_uno, origen: 'La Habana'};
+
+console.log(persona_uno); --> resultado --> 
+{
+  "nombre": "Koko",
+  "edad": 28,
+  "origen": "La Habana"
+}
+
+```
+
+</details>
+
+<details>
+
+<summary>transmitir argumentos a las funciones</summary>
+
+```
+const saludo = (nombre, apellido) => {console.log(`hola, mundo, soy ${nombre} ${apellido}`);};
+let nombreUno= ['Maite', 'Mora']
+saludoo(...nombreUno); --> resultado --> "hola, mundo, soy Maite Mora"
 ```
 
 </details>
