@@ -51,7 +51,7 @@ Asimismo, para ser capaces de ejecutar el código, muchas veces necesitamos cont
 
 <figure><img src="https://desarrolloweb.com/storage/article_featured_images/MaQ6mbAWDZnfyZMSEcXOfeZtkVwnTdVUV4TZOZhO.png" alt=""><figcaption></figcaption></figure>
 
-En este tramo de código, _razasPerros_ es el contenedor (la variable) de los datos 'mestizo de Pitbull', 'Chihuahua' y 'Doberman'; y _var_ es la palabra clave que hemos utilizado para declarar la variable, del mismo modo que podríamos haber usado una de las otras dos palabras clave que existen: _let_, o _const_.&#x20;
+En este tramo de código, _razasPerros_ es el contenedor (la variable) de los datos 'mestizo de Pitbull', 'Chihuahua' y 'Doberman'; y _<mark style="background-color:blue;">var</mark>_ es la palabra clave que hemos utilizado para declarar la variable, del mismo modo que podríamos haber usado una de las otras dos palabras clave que existen: _<mark style="background-color:blue;">let</mark>_<mark style="background-color:blue;">, o</mark> <mark style="background-color:blue;"></mark>_<mark style="background-color:blue;">const</mark>_<mark style="background-color:blue;">.</mark>&#x20;
 
 ¿Son intercambiables estas palabras claves? ¿Podemos hacer un uso indistinto de ellas?
 
@@ -87,9 +87,9 @@ function alcance() {
     console.log(tres); --> output: "const dentro del bloque"
   }
 
-  console.log("Dentro de la función, fuera del bloque:" uno); --> output: "Dentro de la función, fuera del bloque:" "var dentro del bloque"
-  console.log("Dentro de la función, fuera del bloque:" dos); --> output: Uncaught ReferenceError: dos is not defined 
-  console.log("Dentro de la función, fuera del bloque:" tres); --> output: Uncaught ReferenceError: tres is not defined 
+  console.log("Dentro de la función, fuera del bloque:", uno); --> output: "Dentro de la función, fuera del bloque:" "var dentro del bloque"
+  console.log("Dentro de la función, fuera del bloque:", dos); --> output: Uncaught ReferenceError: dos is not defined 
+  console.log("Dentro de la función, fuera del bloque:", tres); --> output: Uncaught ReferenceError: tres is not defined 
 }
 
 
@@ -137,11 +137,53 @@ console.log(a) --> output:Uncaught TypeError: Assignment to constant variable.
 {% hint style="info" %}
 En conclusión, ¿cuál usamos en cada momento?
 
-En la codificación moderna, debido a lo que hemos expuesto anteriormente sobre el hoisting y el alcance (las posibles complicaciones en las que puede derivar su falta de restricciones), _var_ ha dejado de estar en boga, mientras que se recomienda hacer uso de _let_ en caso de que tengas variables que necesitarás alterar más adelante, y de _const_ en caso de que sepas que no vas a necesitar reasignarlas.
+En la codificación moderna, debido a lo que hemos expuesto anteriormente sobre el hoisting y el alcance (las posibles complicaciones en las que puede derivar su falta de restricciones), _var_ ha dejado de estar en boga, mientras que se recomienda hacer uso de _<mark style="background-color:orange;">let</mark>_ en caso de que tengas <mark style="background-color:orange;">variables que necesitarás alterar más adelante</mark>, y de _<mark style="background-color:purple;">const</mark>_ en caso de que sepas que <mark style="background-color:purple;">no vas a necesitar reasignarlas</mark>.
 {% endhint %}
 
-Ahora, volviendo a las funciones. Podemos usar una función tradicional, con la estructura que hemos visto al principio, o podemos usar una función de flecha.
+Ahora, volvamos a las funciones: podemos usar una función tradicional, con la estructura que hemos visto al principio, o también podemos usar una <mark style="background-color:blue;">función de flecha</mark>, que es una versión más sencilla en la que la palabra clave 'this' (también la hemos visto anteriormente) tiene un manejo distinto.
+
+<details>
+
+<summary>Estructura básica</summary>
+
+```
+FUNCIÓN TRADICIONAL:
+
+function nombre(parámetro(s) de entrada) {
+    
+    código a ejecutar
+    
+    return retorno_deseado
+    
+}
 
 
+
+FUNCIÓN DE FLECHA:
+
+const nombre = (parámetro(s) de entrada) => código a ejecutar;
+
+
+NOTA: el código a ejecutar irá sin llaves ni return o console.log
+en caso de que solo tengamos una expresión; si tenemos más de una expresión,
+sí incluimos ambos términos.
+
+```
+
+</details>
+
+Por ejemplo:
+
+```
+const suma = (num1, num2) => num1 + num2;
+
+console.log(suma(4, 5)); --> output:9
+
+o
+
+const buenosDias = (nombre, mensaje) => {console.log(`Buenos días ${nombre}, ${mensaje}`);}; 
+
+buenosDias('Amatxito', 'te amo'); --> output:"Buenos días Amatxito, te amo"
+```
 
 \
