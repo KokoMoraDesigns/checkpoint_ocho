@@ -66,5 +66,85 @@ console.log(cena); --> resultado: "pimientos con hamburguesa de atún y helado"
 
 </details>
 
+<details>
 
+<summary>objetos</summary>
+
+```
+let usuario = {nombre: "Maite", edad: 28, ciudad: "La Habana"};
+```
+
+
+
+Cómo accederíamos a los valores <mark style="background-color:$primary;">sin deconstruirla</mark>:
+
+```
+console.log(`su nombre es ${usuario.nombre}, de ${usuario.edad} años, con origen en ${usuario.ciudad}`);
+
+
+Resultado:
+
+"su nombre es Maite, de 28 años, con origen en La Habana"
+```
+
+
+
+Cómo accedemos a los valores <mark style="background-color:yellow;">después de deconstruirla:</mark>
+
+```
+let { nombre, edad, ciudad } = usuario; --> la deconstruimos
+
+
+console.log(`su nombre es ${nombre}, de ${edad} años, con origen en ${ciudad}`); --> accedemos a sus valores
+
+
+
+Resultado: 
+
+"su nombre es Maite, de 28 años, con origen en La Habana"
+```
+
+
+
+**También podemos** alterar el nombre de las variables:
+
+```
+let { nombre, edad: años, ciudad: origen } = usuario;
+
+console.log(`su nombre es ${nombre}, de ${años} años, con origen en ${origen}`);
+
+
+Resultado: 
+
+"su nombre es Maite, de 28 años, con origen en La Habana"
+```
+
+
+
+**También podemos** usarlo en bucles:
+
+```
+let usuarios = [
+    { nombre: 'Maite', edad: 28, ciudad: 'La Habana' },
+    { nombre: 'Koko', edad: 28, ciudad: 'San Sebastián' },
+    { nombre: 'Aleida', edad: 60, ciudad: 'La Habana' },
+    { nombre: 'Imala', edad: 60, ciudad: 'San Sebastián' }
+];
+
+
+for (let { nombre, edad: años, ciudad: origen } of usuarios) {
+
+    console.log(`su nombre es ${nombre}, de ${años} años, con origen en ${origen}`);
+}
+
+
+Resultado:
+
+"su nombre es Maite, de 28 años, con origen en La Habana"
+"su nombre es Koko, de 28 años, con origen en San Sebastián"
+"su nombre es Aleida, de 60 años, con origen en La Habana"
+"su nombre es Imala, de 60 años, con origen en San Sebastián"
+```
+
+</details>
 
