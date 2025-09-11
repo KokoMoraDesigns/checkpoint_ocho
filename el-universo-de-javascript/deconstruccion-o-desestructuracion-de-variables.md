@@ -24,7 +24,9 @@ Veamos como funciona la deconstrucción de variables en diferentes elementos.
 let alimentacion = ['pancake y zumo de pomelo', 'huevos rotos y yogur', 'pimientos con hamburguesa de atún y helado'];
 ```
 
-Cómo accederíamos a los valores sin deconstruirla:
+
+
+Cómo accederíamos a los valores <mark style="background-color:$primary;">sin deconstruirla</mark>:
 
 ```
 console.log(`desayuno: ${alimentacion[0]}, comida: ${alimentacion[1]}, cena: ${alimentacion[2]}`);
@@ -36,7 +38,9 @@ Resultado:
 
 ```
 
-Cómo accedemos a los valores después de deconstruirla:
+
+
+Cómo accedemos a los valores <mark style="background-color:yellow;">después de deconstruirla:</mark>
 
 ```
 let [desayuno, comida, cena] = alimentacion; --> esta es la deconstrucción
@@ -46,7 +50,9 @@ console.log(comida); --> resultado: "huevos rotos y yogur"
 console.log(cena); --> resultado: "pimientos con hamburguesa de atún y helado"
 ```
 
-También podemos elegir los elementos que deseamos deconstruir:
+
+
+**También podemos** elegir los elementos que deseamos deconstruir:
 
 ```
 let alimentacion = ['pancake y zumo de pomelo', 'huevos rotos y yogur', 'pimientos con hamburguesa de atún y helado'];
@@ -56,14 +62,6 @@ let [desayuno, , cena] = alimentacion
 
 console.log(desayuno); --> resultado: "pancake y zumo de pomelo"
 console.log(cena); --> resultado: "pimientos con hamburguesa de atún y helado"
-```
-
-Y también podemos añadir nuevos valores:
-
-```
-let alimentacion = ['pancake y zumo de pomelo', 'huevos rotos y yogur', 'pimientos con hamburguesa de atún y helado'];
-
-let [desayuno, almuerzo = 'limonada, comida, cena
 ```
 
 </details>
