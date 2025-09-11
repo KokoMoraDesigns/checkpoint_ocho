@@ -140,7 +140,7 @@ En conclusión, ¿cuál usamos en cada momento?
 En la codificación moderna, debido a lo que hemos expuesto anteriormente sobre el hoisting y el alcance (las posibles complicaciones en las que puede derivar su falta de restricciones), _var_ ha dejado de estar en boga, mientras que se recomienda hacer uso de _<mark style="background-color:orange;">let</mark>_ en caso de que tengas <mark style="background-color:orange;">variables que necesitarás alterar más adelante</mark>, y de _<mark style="background-color:purple;">const</mark>_ en caso de que sepas que <mark style="background-color:purple;">no vas a necesitar reasignarlas</mark>.
 {% endhint %}
 
-Ahora, volvamos a las funciones: podemos usar una función tradicional, con la estructura que hemos visto al principio, o también podemos usar una <mark style="background-color:blue;">función de flecha</mark>, que es una versión más sencilla en la que la palabra clave 'this' (también la hemos visto anteriormente) tiene un manejo distinto.
+Ahora, volvamos a las funciones: podemos usar una función tradicional, con la estructura que hemos visto al principio, o también podemos usar una <mark style="background-color:blue;">función de flecha</mark>, que es una versión más sencilla:&#x20;
 
 <details>
 
@@ -179,7 +179,7 @@ const suma = (num1, num2) => num1 + num2;
 
 console.log(suma(4, 5)); --> output:9
 
-o
+----------------------------------------------------------------------------------------------
 
 const buenosDias = (nombre, mensaje) => {console.log(`Buenos días ${nombre}, ${mensaje}`);}; 
 
@@ -187,3 +187,28 @@ buenosDias('Amatxito', 'te amo'); --> output:"Buenos días Amatxito, te amo"
 ```
 
 \
+Además,  la palabra clave 'this' (también la hemos visto anteriormente) tiene un manejo distinto, pues, si la usamos dentro de una función flecha, estaremos heredando el significado que 'this' tenga dentro del contexto en que hemos integrado la función flecha.&#x20;
+
+Por ejemplo:
+
+```
+
+function esperar(nombre) {
+  this.nombre = nombre;
+  setTimeout(() => {
+    console.log(this.nombre + ', ejercita un poco la paciencia, espérame 4 segunditos, por favor');
+  }, 4000);
+}
+
+esperar('Persona'); --> output: "Persona, ejercita un poco la paciencia, espérame 4 segunditos, por favor"
+
+
+```
+
+En caso de haber anidado dos funciones tradicionales para esa operación, _this.nombre_ de la función 'hija' sería 'undefined', puesto que no habría heredado el comportamiento de la función primaria.
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2025-09-11 a la(s) 19.54.16.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+En conclusión, las funciones de flecha son recomendables para funciones cortas y sencillas, así como en las que sería de ayuda poder heredar el 'this' de la función primaria.
+{% endhint %}
