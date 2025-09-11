@@ -8,7 +8,13 @@ Imaginemos que tenemos un pastel enorme (24cm de diámetro) que vamos a comer so
 
 En otras palabras: deconstruiríamos el pastel de 24cm de diámetro en ocho pasteles más pequeños, para hacer su ingesta más manejable.
 
+<figure><img src="https://estaticos.dulcear.com/image/cache/catalog/Sulu/4-550x550.jpg.webp" alt=""><figcaption></figcaption></figure>
+
+
+
 Pues bien, ahora el pastel es una colección de datos formada por un conjunto de distintas tuplas, arrays, u objetos, y, para convertirlo en algo más digerible (en términos de programación: más manejable), queremos deconstruirlo en distintos pedazos, es decir, queremos 'cortar' / 'desempaquetar' el contenedor de la colección y asignar su contenido o sus propiedades a distintas variables.
+
+<figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDzYPQv42TTFFOLZeKD4PX6cpCwcSuwMfBTD8gcrh3w6Apa0LUJfTGyg9BHplWB1vsBg&#x26;usqp=CAU" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Además de facilitar un código más manejable, la desestructuración de variables también está ligada a las buenas prácticas en programación, puesto que proporciona un código más legible y fácil de mantener, así como menos reiterativo.
