@@ -200,7 +200,7 @@ function esperar(nombre) {
   }, 4000);
 }
 
-esperar('Persona'); --> output: "Persona, ejercita un poco la paciencia, espérame 4 segunditos, por favor"
+esperar('Benito'); --> output: "Benito, ejercita un poco la paciencia, espérame 4 segunditos, por favor"
 
 
 ```
