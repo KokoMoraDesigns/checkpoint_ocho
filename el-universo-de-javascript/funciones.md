@@ -67,15 +67,78 @@ Del <mark style="background-color:orange;">hoisting</mark> ya hemos hablado prev
 
 Pero, como breve recordatorio, el hoisting es el sistema de funcionamiento que sigue JavaScript según el que en primer lugar declara las funciones y las variables, y en segundo lugar les asigna sus valores. En este sentido, si declaramos la función con la palabra clave _var_, JavaScript lo elevará al comienzo con un valor de _undefined_, es decir, la función estará en funcionamiento, solo que con los valores todavía sin asignar. No obstante, si la declaramos con la palabra clave _let_ o _const_, se quedará en una zona muerta temporal, puesto que en este caso no funcionará hasta que no tenga los valores asignados.
 
-Acerca del <mark style="background-color:orange;">alcance</mark>, _let_ y _const_ tienen un alcance que se limita al bloque del que forman parte, en cambio, _var_ puede alcanzar bien la función en que está integrada, o, si está fuera, puede alcanzar globalmente:
+Acerca del <mark style="background-color:orange;">alcance</mark>, _let_ y _const_ tienen un alcance que se limita al bloque del que forman parte, en cambio, _var_ puede alcanzar la función en que está integrada.
 
 <figure><img src="../.gitbook/assets/Captura de pantalla 2025-09-11 a la(s) 17.45.35.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://chatgpt.com/backend-api/estuary/content?id=file-HN9v6m4qaEjf7UwXdSLHww&#x26;ts=488219&#x26;p=fs&#x26;cid=1&#x26;sig=7d8aa7195871d496fadd6ee9434847ee7535fb33a42672f50e0a55fa29ecb4d2&#x26;v=0" alt=""><figcaption></figcaption></figure>
 
+Veamos un ejemplo:
+
+```
+function alcance() {
+  if (true) {
+    var uno = "var dentro del bloque";
+    let dos = "let dentro del bloque";
+    const tres = "const dentro del bloque";
+
+    console.log(uno); --> output: "var dentro del bloque"
+    console.log(dos); --> output: "let dentro del bloque"
+    console.log(tres); --> output: "const dentro del bloque"
+  }
+
+  console.log("Dentro de la función, fuera del bloque:" uno); --> output: "Dentro de la función, fuera del bloque:" "var dentro del bloque"
+  console.log("Dentro de la función, fuera del bloque:" dos); --> output: Uncaught ReferenceError: dos is not defined 
+  console.log("Dentro de la función, fuera del bloque:" tres); --> output: Uncaught ReferenceError: tres is not defined 
+}
 
 
+```
 
+Y, finalmente, sobre <mark style="background-color:orange;">la reasignación y la redeclaración,</mark> _var_ se puede tanto reasignar como redeclarar:
+
+```
+var x = 1
+console.log(x) --> output:1
+
+var x = 2
+console.log(x) --> output:2
+
+x = 4000
+console.log(x) --> output:4000
+```
+
+Mientras que _let_ no se puede redeclarar:
+
+```
+let y = 1
+console.log(y) --> output:1
+
+let y=2 
+console.log(y) --> output:Uncaught SyntaxError: Identifier 'y' has already been declared 
+
+y = 4000
+console.log(y) --> output: 4000
+```
+
+Y _const_ no se puede redeclarar ni reasignar:
+
+```
+const a = 1
+console.log(a) --> output:1
+
+const a = 2
+console.log(a) --> output:Uncaught SyntaxError: Identifier 'a' has already been declared 
+
+a = 4000
+console.log(a) --> output:Uncaught TypeError: Assignment to constant variable. 
+```
+
+{% hint style="info" %}
+En conclusión, ¿cuál usamos en cada momento?
+
+En la codificación moderna, debido a lo que hemos expuesto anteriormente sobre el hoisting y el alcance (las posibles complicaciones en las que puede derivar su falta de restricciones), _var_ ha dejado de estar en boga, mientras que se recomienda hacer uso de _let_ en caso de que tengas variables que necesitarás alterar más adelante, y de _const_ en caso de que sepas que no vas a necesitar reasignarlas.
+{% endhint %}
 
 Ahora, volviendo a las funciones. Podemos usar una función tradicional, con la estructura que hemos visto al principio, o podemos usar una función de flecha.
 
