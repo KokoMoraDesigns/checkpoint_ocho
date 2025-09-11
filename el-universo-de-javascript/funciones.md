@@ -51,11 +51,27 @@ Asimismo, para ser capaces de ejecutar el código, muchas veces necesitamos cont
 
 <figure><img src="https://desarrolloweb.com/storage/article_featured_images/MaQ6mbAWDZnfyZMSEcXOfeZtkVwnTdVUV4TZOZhO.png" alt=""><figcaption></figcaption></figure>
 
-En este tramo de código, _razasPerros_ es el contenedor (la variable) de los datos 'mestizo de Pitbull', 'Chihuahua' y 'Doberman'; y _var_ es la palabra clave que hemos utilizado para declarar la variable, del mismo modo que podríamos haber usado una de las otras dos palabras clave que existen: _let_, o _const_. Sin embargo, ¿son intercambiables estas palabras claves? ¿Podemos hacer un uso indistinto de ellas?
+En este tramo de código, _razasPerros_ es el contenedor (la variable) de los datos 'mestizo de Pitbull', 'Chihuahua' y 'Doberman'; y _var_ es la palabra clave que hemos utilizado para declarar la variable, del mismo modo que podríamos haber usado una de las otras dos palabras clave que existen: _let_, o _const_.&#x20;
+
+¿Son intercambiables estas palabras claves? ¿Podemos hacer un uso indistinto de ellas?
 
 No.&#x20;
 
-Cada una de ellas será apropiada o inapropiada para cada contexto particular, en dependencia de sus atributos y, por ende, del contexto en que deseemos declarar una función. Empecemos por la palabra clave _var_.
+Cada una de ellas puede ser apropiada o inapropiada en diferentes circunstancias, <mark style="background-color:purple;">dependiendo de sus atributos y,</mark> por ende, <mark style="background-color:purple;">del contexto</mark> en que deseemos declarar la función. Los tres atributos en base a los que va a oscilar nuestra decisión son: <mark style="background-color:purple;">el alcance, el hoisting, y la reasignación</mark>.
+
+
+
+Del <mark style="background-color:orange;">hoisting</mark> ya hemos hablado previamente:
+
+{% embed url="https://koko-mora.gitbook.io/checkpoint_siete/javascript/declaracion-de-funcion-vs-expresion-de-funcion" %}
+
+Pero, como breve recordatorio, el hoisting es el sistema de funcionamiento que sigue JavaScript según el que en primer lugar declara las funciones y las variables, y en segundo lugar les asigna sus valores. En este sentido, si declaramos la función con la palabra clave _var_, JavaScript lo elevará al comienzo con un valor de _undefined_, es decir, la función estará en funcionamiento, solo que con los valores todavía sin asignar. No obstante, si la declaramos con la palabra clave _let_ o _const_, se quedará en una zona muerta temporal, puesto que en este caso no funcionará hasta que no tenga los valores asignados.
+
+Acerca del <mark style="background-color:orange;">alcance</mark>, _let_ y _const_ tienen un alcance que se limita al bloque del que forman parte, en cambio, _var_ puede alcanzar bien la función en que está integrada, o, si está fuera, puede alcanzar globalmente:
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2025-09-11 a la(s) 17.45.35.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://chatgpt.com/backend-api/estuary/content?id=file-HN9v6m4qaEjf7UwXdSLHww&#x26;ts=488219&#x26;p=fs&#x26;cid=1&#x26;sig=7d8aa7195871d496fadd6ee9434847ee7535fb33a42672f50e0a55fa29ecb4d2&#x26;v=0" alt=""><figcaption></figcaption></figure>
 
 
 
