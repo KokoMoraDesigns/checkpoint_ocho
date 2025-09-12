@@ -32,13 +32,15 @@ class Literatura {
     }
 }
 
-const terror = new Literatura('Brenda Navarro', 'Casas Vacías'); --> instancia
+const terror = new Literatura('Casas Vacías', 'Brenda Navarro'); --> instancia
 
 terror.presentacion(); --> resultado --> "Brenda Navarro ha escrito Casas Vacías"
         
 ```
 
 En este ejemplo hemos utilizado la <mark style="background-color:orange;">palabra clave</mark> <mark style="background-color:orange;"></mark>_<mark style="background-color:orange;">class</mark>_ para declarar la clase Literatura. Dentro de ella nos encontramos con un <mark style="background-color:orange;">constructor</mark>, que se pondrá en marcha de manera automática cada vez que creemos una nueva instancia de la clase (ejecutará las instrucciones sobre qué atributos debe tener esa nueva instancia). Después, tenemos las <mark style="background-color:orange;">propiedades</mark> (las variables que contienen los datos), los <mark style="background-color:orange;">métodos</mark> (las funciones que delimitan cómo un objeto se va a comportar), y, finalmente, las <mark style="background-color:orange;">instancias</mark> (los objetos creados en esa clase).
+
+En conclusión, la plantilla o el molde Literatura define un comportamiento según el que almacena un título literario y un nombre y junta ambos datos en la acción de devolvernos la  cadena 'nombre ha escrito título'. De modo que, cada vez que creemos un nuevo objeto, este comportamiento de activará.
 
 </details>
 
