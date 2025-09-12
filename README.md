@@ -92,15 +92,15 @@ Y 4 segundos después:
 
 <summary>Promesas</summary>
 
-Otro elemento que forma parte de las funciones asíncronas es la promesa: el objeto que <mark style="background-color:orange;">muestra el resultado de dicha función asíncrona</mark>, bien si este ha sido satisfactorio (te devuelvo los datos que me pedías) o bien si ha habido un error (te devuelvo el error). Es decir, una promesa puede tener tres estados: pendiente (operación en proceso), cumplida (operación culminada con éxito), o rechazada (operación culminada sin éxito).
+Otro elemento que forma parte de las funciones asíncronas es la promesa: el objeto que <mark style="background-color:orange;">muestra el resultado de dicha función asíncrona</mark>, bien si este ha sido satisfactorio (te devuelvo los datos que me pedías) o bien si ha habido un error (te devuelvo el error). De este modo, una promesa puede tener tres estados: pendiente (operación en proceso), cumplida (operación culminada con éxito), o rechazada (operación culminada sin éxito).
 
 <figure><img src="https://es.javascript.info/article/promise-basics/promise-resolve-reject.svg" alt=""><figcaption></figcaption></figure>
 
-Usamos las promesas en los contextos de llamadas a APIs, intentos de acceder a bases de datos u otras acciones cuyo cumplimiento conlleve una demora indefinida en la que las funciones que dependan del resultado, quedan detenidas hasta que dicho resultado haya llegado.
+Usamos las promesas en los contextos de llamadas a APIs, intentos de acceder a bases de datos u otras acciones cuyo cumplimiento conlleve una demora indefinida en la que las funciones que dependan del resultado quedan detenidas hasta que dicho resultado llegue.
 
 
 
-Veamos la estructura básica de una promesa:
+Veamos una **estructura básica de una promesa:**
 
 ```
 miPromesa {
@@ -120,10 +120,6 @@ miPromesa {
 }
 ```
 
-
-
-* **.then()**: Este método se utiliza para manejar el resultado exitoso de una promesa. Recibe una función que se ejecutará cuando la promesa se resuelva con éxito y puede recibir el resultado como argumento.
-* **.catch()**: Se utiliza para manejar errores que puedan ocurrir durante la ejecución de la promesa. Puedes encadenar _.catch()_ después de _.then()_ para manejar errores específicos.
-* **.finally()**: Este método se utiliza para ejecutar una función después de que la promesa se resuelva o se rechace, independientemente del resultado. Es útil para realizar tareas de limpieza o acciones que deben ocurrir sin importar el resultado de la promesa.
+En el interior de _.then_ posicionamos la función que está esperando el resultado de la promesa para poder ejecutarse, mientras que _.catch_ sirve para manejar los potenciales errores que surjan si la promesa queda en estado de rechazo. Y, aunque no esté representado en el esquema anterior, también podríamos tener _.finally()_, que haría referencia a la función que se accionaría después de que la promesa devolviera un resultado, tanto si este fuera positivo, como si fuera negativo.
 
 </details>
