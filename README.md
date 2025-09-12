@@ -86,3 +86,44 @@ Y 4 segundos después:
 "Aquí están los perfiles que te interesan: Esta sería toda la información que la API nos devuelva."
 ```
 
+
+
+<details>
+
+<summary>Promesas</summary>
+
+Otro elemento que forma parte de las funciones asíncronas es la promesa: el objeto que <mark style="background-color:orange;">muestra el resultado de dicha función asíncrona</mark>, bien si este ha sido satisfactorio (te devuelvo los datos que me pedías) o bien si ha habido un error (te devuelvo el error). Es decir, una promesa puede tener tres estados: pendiente (operación en proceso), cumplida (operación culminada con éxito), o rechazada (operación culminada sin éxito).
+
+<figure><img src="https://es.javascript.info/article/promise-basics/promise-resolve-reject.svg" alt=""><figcaption></figcaption></figure>
+
+Usamos las promesas en los contextos de llamadas a APIs, intentos de acceder a bases de datos u otras acciones cuyo cumplimiento conlleve una demora indefinida en la que las funciones que dependan del resultado, quedan detenidas hasta que dicho resultado haya llegado.
+
+
+
+Veamos la estructura básica de una promesa:
+
+```
+miPromesa {
+
+  .then((resultado) => {
+  
+    console.log(resultado);
+    
+  })
+  
+  .catch((error) => {
+  
+    console.error(error.message); 
+    
+  });
+  
+}
+```
+
+
+
+* **.then()**: Este método se utiliza para manejar el resultado exitoso de una promesa. Recibe una función que se ejecutará cuando la promesa se resuelva con éxito y puede recibir el resultado como argumento.
+* **.catch()**: Se utiliza para manejar errores que puedan ocurrir durante la ejecución de la promesa. Puedes encadenar _.catch()_ después de _.then()_ para manejar errores específicos.
+* **.finally()**: Este método se utiliza para ejecutar una función después de que la promesa se resuelva o se rechace, independientemente del resultado. Es útil para realizar tareas de limpieza o acciones que deben ocurrir sin importar el resultado de la promesa.
+
+</details>
